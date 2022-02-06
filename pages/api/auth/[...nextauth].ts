@@ -51,6 +51,7 @@ export default NextAuth({
 
             user = await prisma.user.create({
               data: {
+                username: credentials!.email.split("@")[0],
                 email: credentials!.email,
                 password: await hashPassword(credentials!.password),
               },
