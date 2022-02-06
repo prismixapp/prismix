@@ -4,10 +4,14 @@
   "license": "AGPL-3.0",
   "private": true,
   "scripts": {
+    "postinstall": "prisma generate",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "prisma": {
+    "schema": "database/schema.prisma"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.1",
