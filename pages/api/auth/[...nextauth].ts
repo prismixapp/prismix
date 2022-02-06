@@ -40,8 +40,7 @@ export default NextAuth({
               id: true,
               email: true,
               password: true,
-              name: true,
-              role: true,
+              username: true,
             },
           });
 
@@ -106,7 +105,7 @@ export default NextAuth({
         user: {
           ...session.user,
           id: token.id as string,
-          role: token.role as string,
+          email: token.email as string,
         },
       };
 

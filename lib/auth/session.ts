@@ -8,7 +8,6 @@ type DefaultSessionUser = NonNullable<DefaultSession["user"]>;
 
 type SessionUser = DefaultSessionUser & {
   id: string;
-  role: string;
 };
 
 export type Session = DefaultSession & {
