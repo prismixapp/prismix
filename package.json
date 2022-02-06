@@ -1,5 +1,7 @@
 {
-  "name": "orbit",
+  "name": "@prismix/orbit",
+  "version": "0.0.1",
+  "license": "AGPL-3.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -1,34 +1,93 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <a href="https://github.com/prismixapp/orbit">
+    <img src="https://prismix.app/static/banner.jpeg"">
+
+  </a>
+
+  <h3 align="center">@prismix/orbit</h3>
+
+  <p align="center">
+    Explore the web with anyone in real-time.
+  </p>
+</p>
+
+<p align="center">
+  <a href="https://github.com/prismixapp/web/stargazers"><img src="https://img.shields.io/github/stars/prismixapp/web" alt="Github Stars"></a>
+  <a href="https://github.com/prismixapp/web/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-AGPLv3-purple" alt="License"></a>
+  <img src="https://img.shields.io/github/package-json/v/prismixapp/web">
+</p>
+
+### Built With
+
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Tailwind](https://tailwindcss.com/)
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running, please follow these simple steps.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Here is what you need to be able to run `@prismix/orbit`.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Node.js
+- Yarn _(recommended)_
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Development
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Setup
 
-## Learn More
+1. Clone the repo
 
-To learn more about Next.js, take a look at the following resources:
+   ```sh
+   git clone https://github.com/prismixapp/orbit.git
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Go to the project folder
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```sh
+   cd prismix
+   ```
 
-## Deploy on Vercel
+3. Install packages with yarn
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```sh
+   yarn
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. Start a development instance
+
+   ```sh
+   yarn dev
+   ```
+
+## Roadmap
+
+See the [roadmap](https://github.com/orgs/prismixapp/projects/1/) for a list of proposed features (and known issues).
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the project
+2. Clone your fork
+3. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+4. Make your changes
+5. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+6. Push to the branch (`git push origin feature/AmazingFeature`)
+7. Open a pull request
+
+## License
+
+Distributed under the AGPLv3 License. See [`LICENSE`](https://github.com/prismixapp/orbit/blob/development/LICENSE) for more information.
+
+## Acknowledgements
+
+Special thanks to these amazing projects which help power Prismix:
+
+[<img src="https://prismix.app/static/powered-by-vercel.svg">](https://vercel.com/?utm_source=prismix&utm_campaign=oss)
+
+- [Vercel](https://vercel.com/?utm_source=prismix&utm_campaign=oss)
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
