@@ -1,0 +1,83 @@
+name: 🐛 Bug report
+description: Unexpected program behaviour that requires code correction
+labels: ['bug']
+body:
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Ensure that our bug report form is appropriate for you.
+      options:
+        - label: I'm not using a **custom client**
+          required: true
+        - label: This is not a **[question](https://github.com/prismixapp/prismix/discussions)**
+          required: true
+        - label: This is not a **[technical issue](https://github.com/prismixapp/prismix/discussions)**
+          required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Prismix version
+      description: If you're using a different version than the current **[stable](https://github.com/prismixapp/prismix/releases/latest)** or **[pre-release](https://github.com/prismixapp/prismix/releases)**, ensure that your bug report is reproducible on one of the below.
+      options:
+        - Latest stable release
+        - Latest pre-release
+    validations:
+      required: true
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug description
+      description: Short explanation of what you were going to do, what did you want to accomplish?
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual behavior
+      description: What happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to reproduce
+      description: |
+        Every action that happened after launching Prismix, which leads to the bug.
+  - type: textarea
+    id: possible-solution
+    attributes:
+      label: Possible reason/solution
+      description: |
+        Not mandatory, but you can suggest a fix/reason for the bug, if known to you.
+        If you observed something peculiar about your issue that could help us locate and fix the culprit, this is the right place.
+  - type: dropdown
+    id: help
+    attributes:
+      label: Can you help us with this bug report?
+      description: |
+        Prismix is offered for free and our resources are limited.
+        Helping us increases the chance of fixing the problem.
+      options:
+        - Yes, I can code the solution myself and send a pull request
+        - Somehow, I can test and offer feedback, but can't code
+        - No, I don't have time, skills or willings for any of that
+    validations:
+      required: true
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional info
+      description: Everything else you consider worthy that we didn't ask for.
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        #### Thank you for taking the time to fill out this bug report.
