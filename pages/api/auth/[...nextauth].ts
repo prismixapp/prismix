@@ -1,33 +1,33 @@
-import NextAuth from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import NextAuth from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import { PrismaAdapter } from '@next-auth/prisma-adapter';
 
-import { comparePassword, hashPassword } from "@lib/auth/passwords";
-import { Session } from "@lib/auth/session";
-import { prisma } from "@db/index";
+import { comparePassword, hashPassword } from '@lib/auth/passwords';
+import { Session } from '@lib/auth/session';
+import { prisma } from '@db/index';
 
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
   secret: process.env.JWT_SECRET,
   session: {
-    strategy: "jwt",
+    strategy: 'jwt',
   },
   pages: {
-    signIn: "/auth",
+    signIn: '/auth',
   },
   providers: [
     CredentialsProvider({
-      id: "credentials",
-      type: "credentials",
-      name: "Prismix",
+      id: 'credentials',
+      type: 'credentials',
+      name: 'Prismix',
       credentials: {
         email: {
-          label: "Email Address",
-          type: "email",
+          label: 'Email Address',
+          type: 'email',
         },
         password: {
-          label: "Password",
-          type: "password",
+          label: 'Password',
+          type: 'password',
         },
       },
       async authorize(credentials) {
@@ -46,12 +46,12 @@ export default NextAuth({
 
           if (!user) {
             if (!credentials!.password || !credentials!.email) {
-              throw new Error("Invalid Credentials");
+              throw new Error('Invalid Credentials');
             }
 
             user = await prisma.user.create({
               data: {
-                username: credentials!.email.split("@")[0],
+                username: credentials!.email.split('@')[0],
                 email: credentials!.email,
                 password: await hashPassword(credentials!.password),
               },
@@ -65,11 +65,11 @@ export default NextAuth({
           } else {
             const isValid = await comparePassword(
               credentials!.password,
-              user.password
+              user.password,
             );
 
             if (!isValid) {
-              throw new Error("Invalid Credentials");
+              throw new Error('Invalid Credentials');
             }
           }
 
