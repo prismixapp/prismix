@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 
-import { comparePassword, hashPassword } from '@lib/auth/passwords';
+import { verifyPassword, hashPassword } from '@lib/auth';
 import { Session } from '@lib/auth/session';
 import { prisma } from '@db/index';
 
@@ -63,10 +63,7 @@ export default NextAuth({
               },
             });
           } else {
-            const isValid = await comparePassword(
-              credentials!.password,
-              user.password,
-            );
+            const isValid = await verifyPassword(credentials!.password, user.password);
 
             if (!isValid) {
               throw new Error('Invalid Credentials');
@@ -86,13 +83,7 @@ export default NextAuth({
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
-      return true;
-    },
-    async redirect({ url, baseUrl }) {
-      return url.startsWith(baseUrl) ? url : baseUrl;
-    },
-    async jwt({ token, user, account, profile, isNewUser }) {
+    async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
         token.email = user.email;
@@ -100,8 +91,11 @@ export default NextAuth({
 
       return token;
     },
-    async session({ session, token, user }) {
-      const sess: Session = {
+    async signIn({}) {
+      return true;
+    },
+    async session({ session, token }) {
+      const prismixSession: Session = {
         ...session,
         user: {
           ...session.user,
@@ -110,7 +104,7 @@ export default NextAuth({
         },
       };
 
-      return sess;
+      return prismixSession;
     },
   },
 });
